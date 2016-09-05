@@ -1,6 +1,6 @@
 <?php
 	
-	include_once('/db/retrive.php'); // ZASTO ONCE
+	include_once('/db/retrive.php'); // ZASTO ONCE PIAM DULA
 	
 	if (isset($_POST['brand']) && isset($_POST['name']) )
 	{
