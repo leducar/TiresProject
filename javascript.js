@@ -79,6 +79,8 @@ function prepareEnviroment () {
 	$( ".div_top_container").remove();
 }
 
+
+// method for changing tires
 function determineSelectedValue(){
 
 	$("#select_brand").change(function() {
@@ -105,7 +107,7 @@ function determineSelectedValue(){
 	        vals = data.dunlop.split(",");
 	        break;                        
 	      case 'base':
-	        vals = ['Please choose from above'];
+	        vals = ['Please choose from above']; 
 	    }
     
 	    

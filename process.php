@@ -1,7 +1,7 @@
 <?php
 	
 	include_once('/db/retrive.php');
-	
+		// test comment
 	if (isset($_POST['brand']) && isset($_POST['name']) )
 	{
 		$brand = $_POST['brand'];

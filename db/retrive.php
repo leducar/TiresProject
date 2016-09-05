@@ -10,7 +10,7 @@ class propertiesClass {
     public $images;
     	
 }
-
+ // new class
 class dbOperations extends propertiesClass 
 {
     private $DBH;
