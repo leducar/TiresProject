@@ -87,27 +87,27 @@ function prepareEnviroment () { //FUNKCIJA KOJA BRISE SVE IZ ELEMENTA-PROSTORA Z
 function determineSelectedValue(){
 
 	$("#select_brand").change(function() {
-		var $dropdown = $(this);
-		$.getJSON("data.json", function(data) {
+		var $dropdown = $(this); // POKUPI VREDNOSTI OD SELECT BRENDA
+		$.getJSON("datafile.json", function(pera) { // OVO PERA JE JSON NIZ KOJI SADRZI PODATKE O KATEGORIJI GUMA
 	  
-		var key = $dropdown.val();
-		var vals = [];
+		var key = $dropdown.val(); // VREDNOST OD SELEKTOVANE OPCIJE BRENDA
+		var vals = []; // PRAZAN NIZ
 		          
 	    switch(key) {
 	      case 'tigar':
-	        vals = data.tigar.split(",");
+	        vals = pera.tigar.split(","); // SPLIT CE DA RAZDVOJI ZAREZAMA VREDNOSTI...U VALS UBACUJE VREDNOSTI IZ DATA KOJE PRIPADAJU TIGRU
 	        break;
 	      case 'good_year':
-	        vals = data.good_year.split(",");
+	        vals = pera.good_year.split(",");
 	        break;
 	      case 'pireli':
-	        vals = data.pireli.split(",");
+	        vals = pera.pireli.split(",");
 	        break;
 	      case 'kleber':
-	        vals = data.kleber.split(",");
+	        vals = pera.kleber.split(",");
 	        break;
 	      case 'dunlop':
-	        vals = data.dunlop.split(",");
+	        vals = pera.dunlop.split(",");
 	        break;                        
 	      case 'base':
 	        vals = ['Please choose from above']; 
@@ -115,9 +115,9 @@ function determineSelectedValue(){
     
 	    
 	    var $secondChoice = $("#search_box");
-	    $secondChoice.empty();
-		    $.each(vals, function(index, value) {
-		      $secondChoice.append("<option>" + value + "</option>");
+	    $secondChoice.empty(); //BRISANJE STARE VREDNOSTI, POSTAVLJANJE NA INICIJALNO STANJE
+		    $.each(vals, function(index, kkk) { // index je iteracija kao u for petlji, a kkk je jedna vrednost tj jedna vrednost gume iz vals
+		      $secondChoice.append("<option>" + kkk + "</option>");
 		    });
 
 	  	});
