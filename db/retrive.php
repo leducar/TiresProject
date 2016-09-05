@@ -10,7 +10,7 @@ class propertiesClass {
     public $images;
     	
 }
- // new class
+
 class dbOperations extends propertiesClass 
 {
     private $DBH;
@@ -22,7 +22,7 @@ class dbOperations extends propertiesClass
             $servername = "localhost";  //  hostname
             $dbname = "gume";  //  databasename
             $username = "root";  //  username
-            $password = "pera";  //  password
+            $password = "";  //  password
 
             $this->DBH = new PDO('mysql:host='.$servername.'; dbname='.$dbname, $username, $password);
             $this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -34,26 +34,25 @@ class dbOperations extends propertiesClass
     }
 
 
-    public function searchByBrandAndName ($brand,$name)
+    public function searchByBrandAndName($brand, $name)
     {
-    	$sql= "SELECT brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%' AND  name LIKE '%" . $name ."%'";
-	   	$this->STH = $this->DBH->query ($sql);
+    	$sql= "SELECT brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%' AND  name LIKE '%" . $name ."%'"; 
+		// koja JE OVO SINTAKSA'%" . $brand .  "%'
+	   	$this->STH = $this->DBH->query($sql);
 	  	
 
-	  	$objReturn = array();
-	   	while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row is array of results
+	  	$objReturn = array(); // NIZ REZULTATA-INICIJALIZACIJA
+	   	while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row JE NIZ REZULTATA ???????????????? STA OVO RADIIIIIII
 
-	   		//$properties = new propertiesClass();
-		   	//$properties->
-            //$brand = $row['brand'];
-		  	//$properties->
-            //$width = $row['width'];
-		  	//$properties->
-            //$price = $row['price'];
-            //$properties->
-            //$images = $row['images'];
+	   		$properties = new propertiesClass(); // NOVI OBJEKAT KLASE, U STVARI NIZ
+		   	$properties->brand = $row['brand'];
+		  	$properties->width = $row['width'];
+		  	$properties->price = $row['price'];
+            $properties->images = $row['images'];
 
-		  	array_push($objReturn,$row);
+		  	array_push($objReturn,$properties); // NA NIZ objReturn SE DODAJE NIZ properties
+			
+			//????????????? ZAR NIJE MOGLO ODMAH DA SE DODA ROW NA objReturn array_push($objReturn,$row);
 		}
 		
 		return $objReturn;
@@ -69,13 +68,13 @@ class dbOperations extends propertiesClass
         $objReturn = array();
         while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row is array of results
 
-            // $properties = new propertiesClass();
-            // $properties->brand = $row['brand'];
-            // $properties->width = $row['width'];
-            // $properties->price = $row['price'];
-            // $properties->images = $row['images'];
+            $properties = new propertiesClass();
+            $properties->brand = $row['brand'];
+            $properties->width = $row['width'];
+            $properties->price = $row['price'];
+            $properties->images = $row['images'];
 
-            array_push($objReturn,$row);
+            array_push($objReturn,$properties);
         }
         
         return $objReturn;
