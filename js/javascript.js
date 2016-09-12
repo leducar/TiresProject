@@ -130,8 +130,3 @@ function determineSelectedValue(){
 	  	});
 	});
 }
-
-// function addLightBox()
-// {
-
-// }
