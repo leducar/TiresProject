@@ -1,7 +1,8 @@
 <?php 
 
 class propertiesClass {
-	public $brand;
+	public $id;
+    public $brand;
 	public $name;
 	public $radius;
 	public $width; 
@@ -22,7 +23,7 @@ class dbOperations extends propertiesClass
             $servername = "localhost";  //  hostname
             $dbname = "gume";  //  databasename
             $username = "root";  //  username
-            $password = "";  //  password
+            $password = "pera";  //  password
 
             $this->DBH = new PDO('mysql:host='.$servername.'; dbname='.$dbname, $username, $password);
             $this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -36,7 +37,7 @@ class dbOperations extends propertiesClass
 
     public function searchByBrandAndName($brand, $name)
     {
-    	$sql= "SELECT brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%' AND  name LIKE '%" . $name ."%'"; 
+    	$sql= "SELECT id,brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%' AND  name LIKE '%" . $name ."%'"; 
 		// koja JE OVO SINTAKSA'%" . $brand .  "%'
 	   	$this->STH = $this->DBH->query($sql);
 	  	
@@ -45,7 +46,8 @@ class dbOperations extends propertiesClass
 	   	while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row JE NIZ REZULTATA ???????????????? STA OVO RADIIIIIII
 
 	   		$properties = new propertiesClass(); // NOVI OBJEKAT KLASE, U STVARI NIZ
-		   	$properties->brand = $row['brand'];
+		   	$properties->id = $row['id'];
+            $properties->brand = $row['brand'];
 		  	$properties->width = $row['width'];
 		  	$properties->price = $row['price'];
             $properties->images = $row['images'];
@@ -61,7 +63,7 @@ class dbOperations extends propertiesClass
 
     public function searchByName ($brand)
     {
-        $sql= "SELECT brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%'";
+        $sql= "SELECT id,brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%'";
         $this->STH = $this->DBH->query ($sql);
         
 
@@ -69,6 +71,7 @@ class dbOperations extends propertiesClass
         while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row is array of results
 
             $properties = new propertiesClass();
+            $properties->id = $row['id'];
             $properties->brand = $row['brand'];
             $properties->width = $row['width'];
             $properties->price = $row['price'];

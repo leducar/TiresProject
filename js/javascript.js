@@ -14,9 +14,9 @@ function eventHandlers() {
 	//////////////// DRUGI DOGADJAJ
 	$("#select_brand").on('change', determineSelectedValue());	// na promenu PRVOG MENIJA pozovi fju KOJA ODREDJUJE VREDNOSTI U DRUGOM MENIJU
 
-	$( document ).on( 'click', '.div_top_container', function() {
-		alert('dqdq');
-	});	
+	// $( document ).on( 'click', '.div_top_container', function() {
+	// 	alert('dqdq');
+	// });	
 	
 }
 
@@ -71,12 +71,16 @@ function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKA
 	var brand = $('<div class ="basisNewsStyle" style="border-color:orange;">'+one_container.brand+'</div>') //JS SINTAKSA IZ OBJEKTA SE UZIMA JEDAN PROPERTY  
 	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'</div>')
 	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+'</div>')
+	var link = $('<a href="'+one_container.id+'">'+"Detaljnije"+'</a>');
 	var tireImg = $('<img class="tirephoto img-responsive " src="img/'+one_container.images+'"></img>');
+	
 
+	link.append(tireImg);
 	oneTire.append(brand);
 	oneTire.append(width);
 	oneTire.append(price);
 	oneTire.append(tireImg);
+	oneTire.append(link);
 	outerBox.append(oneTire); //U VELIKI BOX APENDUJEM JEDAN KONTEJNER
 }
 
