@@ -1,22 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="javascript.js"></script>
-	<link href="mystyle.css" rel="stylesheet" />
-</head>
-
-	<body onload="start()">
-					 
-		First Name: <input id="search_box" type="text" name="firstname"> <br><br>
-		Age: <input id="search_age" type="text" name="age"> <br><br>
-		<input id="submit_btn" type="submit" value="Submit">
-
-		<div class="searchResults" align="center">	</div>
-
-	</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +7,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="javascript.js"></script>
-	<link href="mystyle.css" rel="stylesheet" />
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	
+	<script src="js/javascript.js"></script>
+	<link href="css/mystyle.css" rel="stylesheet" />
 </head>
 
 <body onload="start()">
@@ -56,7 +44,7 @@
 </nav>
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-color:lightgrey">
        <h2>Pretrazi gume</h2> 
 	    <h4 style="align:center">Izaberite kategoriju pretrage</h4> 
 
@@ -88,7 +76,8 @@
 	      <input  type="submit" name="submit" value="Search" id="submit_btn"> 
 	    </form> 
 		</div>
-    <div class="searchResults ">   </div>
-</script>
+    <div class="row searchResults">   </div>
+
+	</script>
 </body>
 </html>                                		
