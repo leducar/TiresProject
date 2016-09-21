@@ -83,6 +83,30 @@ class dbOperations extends propertiesClass
         return $objReturn;
     }
 
+    public function getDataForPage ($id)
+    {
+        $sql= "SELECT id,brand,name,radius,width,height,price,images FROM product WHERE id=".$id;
+        $this->STH = $this->DBH->query ($sql);
+
+        $objReturn = array();
+        while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row is array of results
+
+            $properties = new propertiesClass();
+            $properties->id = $row['id'];
+            $properties->brand = $row['brand'];
+            $properties->name = $row['name'];
+            $properties->radius = $row['radius'];
+            $properties->width = $row['width'];
+            $properties->height = $row['height'];
+            $properties->price = $row['price'];
+            $properties->images = $row['images'];
+
+            array_push($objReturn,$properties);
+        }
+
+        return $objReturn;
+    }
+
 
 
 }

@@ -1,5 +1,6 @@
-function start (){ // zove se u body na pocetku, u practise
-	eventHandlers(); // 	
+function start(){ // zove se u body na pocetku, u practise
+	eventHandlers(); //
+	//getDateForPage(id);
 }
 
 
@@ -14,6 +15,12 @@ function eventHandlers() {
 	//////////////// DRUGI DOGADJAJ
 	$("#select_brand").on('change', determineSelectedValue());	// na promenu PRVOG MENIJA pozovi fju KOJA ODREDJUJE VREDNOSTI U DRUGOM MENIJU
 
+	// $( document ).on( 'click', '.tireLink', function(e) {
+	// 	e.preventDefault() ;
+	// 	getDataForPage();
+	// });
+	
+	
 }
 
 
@@ -36,9 +43,9 @@ function getResults() {
 				var resultList = $.parseJSON(data); // RASPAKUJEM-KONVERTUJEM PODATKE IZ JSON FORMATA U OBICAN NIZ
 				var outerBox = $('.searchResults'); // VELIKI CRVENI DIV SA SVIM KONTEJNERIMA-GUMAMA
 				 $.each(resultList, function(i, one_container) { // when we have array of objects 
-				 // $.each(resultList, function(i, one_container) KROZ LISTU ITERIRAJ PO KONTEJNERIMA
-					createOneExample(one_container, outerBox); // POZIVAMO METODU KOJA DINAMICKI KREIRA JEDAN KONTEJNER		
+					createOneExample(one_container, outerBox); // POZIVAMO METODU KOJA DINAMICKI KREIRA JEDAN KONTEJNER
 				});
+					
 			} 
 		})
 	}else{ //DRUGI SLUCAJ KAD IMAM SAMO BREND BEZ NAVODJENJA IMENA GUME
@@ -54,8 +61,10 @@ function getResults() {
 				var resultList = $.parseJSON(data);
 				var outerBox = $('.searchResults');
 				 $.each(resultList, function(i,one_container) { // when we have array of objects
-					createOneExample(one_container,outerBox);				
+					createOneExample(one_container,outerBox);
+					//getDataForPage(one_container.id);				
 				});
+				
 			} 
 		})
 	}
@@ -63,18 +72,21 @@ function getResults() {
 
 function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKAZUJE REZULTATE, PRAVI PRIKAZ REZULTATA NA STRANICI
 
-	var oneTire = $('<div class="div_top_container"> </div>');
+	var oneTire = $('<div class="col-sm-6 col-md-4 col-lg-2 div_top_container"> </div>');
 	var brand = $('<div class ="basisNewsStyle" style="border-color:orange;">'+one_container.brand+'</div>') //JS SINTAKSA IZ OBJEKTA SE UZIMA JEDAN PROPERTY  
 	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'</div>')
 	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+'</div>')
-	var tireImg = $('<img class="tirephoto img-responsive " src="img/'+one_container.images+'"></img>');
+	var link = $('<a class="tireLink" href="miniPage.php?tireId='+one_container.id+'">'+"Detaljnije"+'</a>');
+	var tireImg = $('<img class="tirephoto" src="img/'+one_container.images+'"></img>');
+	
 
+	link.append(tireImg);
 	oneTire.append(brand);
 	oneTire.append(width);
 	oneTire.append(price);
 	oneTire.append(tireImg);
+	oneTire.append(link);
 	outerBox.append(oneTire); //U VELIKI BOX APENDUJEM JEDAN KONTEJNER
-
 }
 
 function prepareEnviroment () { //FUNKCIJA KOJA BRISE SVE IZ ELEMENTA-PROSTORA ZA PRIKAZ REZULTATA PRE ISPISA NOVIH REZULTATA
@@ -123,3 +135,4 @@ function determineSelectedValue(){
 	  	});
 	});
 }
+

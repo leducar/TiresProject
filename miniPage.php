@@ -1,3 +1,13 @@
+<?php
+
+	if(isset($_GET['tireId']))
+	{
+		$id = $_GET['tireId'];
+		//echo $newsID ;
+	}else{
+		die('Wrong  Id parametar');
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,13 +23,13 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 	
+	<script src="miniPage.js"></script>
 	<script src="javascript.js"></script>
 	<link href="mystyle.css" rel="stylesheet" />
 </head>
 
-<body onload="start()">
+<body onload="init(<?php echo $id;?>)">
 <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
    
     <div class="container">
@@ -43,41 +53,7 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="jumbotron" style="background-color:lightgrey">
-       <h2>Pretrazi gume</h2> 
-	    <h4 style="align:center">Izaberite kategoriju pretrage</h4> 
 
-	    <form  method="post" action="process.php"  id="searchform" class="form-horizontal"> 
+    <div class="searchResultsForMiniPage">   </div>
 
-			<div class="form-group">
-		        <label class="col-xs-3 control-label">Brand</label>
-		        <div class="col-xs-5 selectContainer">
-		            <select id = "select_brand" name="brand" class="form-control">
-		                <option value="base">Please select</option>
-		                <option value="tigar">Tigar</option>
-		                <option value="good_year">Good Year</option>
-		                <option value="pireli">Pireli</option>
-		                <option value="kleber">Kleber</option>
-		                <option value="dunlop">Dunlop</option>
-		            </select>
-		        </div>
-		    </div>
-
-		    <div class="form-group">
-		        <label class="col-xs-3 control-label">Name</label>
-		        <div class="col-xs-5 selectContainer">
-		            <select id = "search_box" name="name" class="form-control">
-		                <option> Please choose from above</option>
-		            </select>
-		        </div>
-		    </div>
-			<br><br>
-	      <input  type="submit" name="submit" value="Search" id="submit_btn"> 
-	    </form> 
-		</div>
-    <div class="row searchResults">   </div>
-
-	</script>
 </body>
-</html>                                		
