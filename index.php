@@ -76,7 +76,8 @@
 	      <input  type="submit" name="submit" value="Search" id="submit_btn"> 
 	    </form> 
 		</div>
-    <div class="row searchResults">   </div>
+    <div class="searchResults">   </div>
+    <div> </div>
 
 	</script>
 </body>

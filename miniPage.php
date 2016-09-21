@@ -45,15 +45,22 @@
    
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="http://www.tutorialrepublic.com" target="_blank">Home</a></li>
-                <li><a href="http://www.tutorialrepublic.com/about-us.php" target="_blank">About</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li class="active"><a href="http://www.tutorialrepublic.com/about-us.php" target="_blank">About</a></li>
                 <li><a href="http://www.tutorialrepublic.com/contact-us.php" target="_blank">Contact</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-    <div class="searchResultsForMiniPage">   </div>
+	<div class="container">
+	    <div class="jumbotron" style="background-color:lightgrey">
+	    	<h2>Opis gume</h2> 
+			<h4 style="align:center">Izaberite kategoriju pretrage</h4> 
+		</div>
+	    
+	    <div class="searchResultsForMiniPage">   </div>
+	     
+	</div>
 
 </body>

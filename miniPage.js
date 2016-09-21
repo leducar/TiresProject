@@ -17,8 +17,6 @@ function eventHandlers() {
 }
 
 
-
-
 function getDataForPage(tireId)
 {
 	//var id = tireId;
@@ -33,9 +31,23 @@ function getDataForPage(tireId)
 		//	alert('before');
 		},
 		success: function(data){
-			//var resultList = $.parseJSON(data);
-			alert(data);
+			console.log(data);
+			var resultList = $.parseJSON(data);
+			var outerBox = $('.searchResultsForMiniPage');
+			createOne(resultList[0], outerBox);
 			//alert(data);
 		} 
 	})
+}
+
+
+function createOne(resultList, outerBox)
+{
+	var oneTire = $('<div class=""> </div>');
+	var tireImg = $('<img class="oneTireStyle" src="img/'+resultList.images+'"></img>');
+	var tireDescription = $('<div class ="oneTireStyle" style="border-color:orange;">'+resultList.brand+'</div>')
+	
+	oneTire.append(tireImg);
+	oneTire.append(tireDescription);
+	outerBox.append(oneTire); 
 }

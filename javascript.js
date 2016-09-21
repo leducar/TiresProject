@@ -72,7 +72,7 @@ function getResults() {
 
 function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKAZUJE REZULTATE, PRAVI PRIKAZ REZULTATA NA STRANICI
 
-	var oneTire = $('<div class="col-sm-6 col-md-4 col-lg-2 div_top_container"> </div>');
+	var oneTire = $('<div class="col-sm-6 col-md-4 col-md-2 div_top_container"> </div>');
 	var brand = $('<div class ="basisNewsStyle" style="border-color:orange;">'+one_container.brand+'</div>') //JS SINTAKSA IZ OBJEKTA SE UZIMA JEDAN PROPERTY  
 	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'</div>')
 	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+'</div>')
