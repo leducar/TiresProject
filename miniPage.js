@@ -45,9 +45,11 @@ function createOne(resultList, outerBox)
 {
 	var oneTire = $('<div class=""> </div>');
 	var tireImg = $('<img class="oneTireStyle" src="img/'+resultList.images+'"></img>');
-	var tireDescription = $('<div class ="oneTireStyle" style="border-color:orange;">'+resultList.brand+'</div>')
+	var tireBrand = $('<div class ="oneTireStyle" style="border-color:orange;font-size:40px;">'+resultList.brand+'</div>')
+	var tireDescription = $('<div class ="basisNewsStyle tireDescription">'+resultList.description+'</div>')
 	
+	tireBrand.append(tireDescription);
 	oneTire.append(tireImg);
-	oneTire.append(tireDescription);
+	oneTire.append(tireBrand);
 	outerBox.append(oneTire); 
 }

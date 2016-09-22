@@ -39,6 +39,7 @@
     position:relative;
     width:auto; 
     height: auto;
+    font-size: 15px;
 }
 .tirephoto{
     border:1px solid; 
@@ -47,6 +48,16 @@
     height: 200px;
     cursor: pointer;
     opacity: 1;
+}
+
+.tireLink{
+
+    font-size: 25px;
+    margin-left: 28%;   
+}
+.tireDescription{
+    padding: 10px;
+    text-align:justify;
 }
 
 .oneTireStyle{
@@ -58,8 +69,6 @@
     opacity: 1;
     float: left;
     margin-left: 3%;
+    font-size: 20px;
 
 }
-/*.moveLeft{
-    float: left;
-}*/

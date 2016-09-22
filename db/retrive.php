@@ -9,6 +9,7 @@ class propertiesClass {
 	public $height;
 	public $price;
     public $images;
+    public $description;
     	
 }
 
@@ -85,7 +86,7 @@ class dbOperations extends propertiesClass
 
     public function getDataForPage ($id)
     {
-        $sql= "SELECT id,brand,name,radius,width,height,price,images FROM product WHERE id=".$id;
+        $sql= "SELECT id,brand,name,radius,width,height,price,images,description FROM product WHERE id=".$id;
         $this->STH = $this->DBH->query ($sql);
 
         $objReturn = array();
@@ -100,6 +101,7 @@ class dbOperations extends propertiesClass
             $properties->height = $row['height'];
             $properties->price = $row['price'];
             $properties->images = $row['images'];
+            $properties->description = $row['description'];
 
             array_push($objReturn,$properties);
         }
