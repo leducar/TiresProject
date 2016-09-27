@@ -38,7 +38,7 @@ class dbOperations extends propertiesClass
 
     public function searchByBrandAndName($brand, $name)
     {
-    	$sql= "SELECT id,brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%' AND  name LIKE '%" . $name ."%'"; 
+    	$sql= "SELECT id,brand,name,radius,width,height,price,images,description FROM product WHERE brand LIKE '%" . $brand .  "%' AND  name LIKE '%" . $name ."%'"; 
 		// koja JE OVO SINTAKSA'%" . $brand .  "%'
 	   	$this->STH = $this->DBH->query($sql);
 	  	
@@ -49,7 +49,9 @@ class dbOperations extends propertiesClass
 	   		$properties = new propertiesClass(); // NOVI OBJEKAT KLASE, U STVARI NIZ
 		   	$properties->id = $row['id'];
             $properties->brand = $row['brand'];
+             $properties->radius = $row['radius'];
 		  	$properties->width = $row['width'];
+             $properties->height = $row['height'];
 		  	$properties->price = $row['price'];
             $properties->images = $row['images'];
 
@@ -64,7 +66,7 @@ class dbOperations extends propertiesClass
 
     public function searchByName ($brand)
     {
-        $sql= "SELECT id,brand,width,price,images FROM product WHERE brand LIKE '%" . $brand .  "%'";
+        $sql= "SELECT id,brand,name,radius,width,height,price,images,description FROM product WHERE brand LIKE '%" . $brand .  "%'";
         $this->STH = $this->DBH->query ($sql);
         
 
@@ -74,7 +76,9 @@ class dbOperations extends propertiesClass
             $properties = new propertiesClass();
             $properties->id = $row['id'];
             $properties->brand = $row['brand'];
+             $properties->radius = $row['radius'];
             $properties->width = $row['width'];
+             $properties->height = $row['height'];
             $properties->price = $row['price'];
             $properties->images = $row['images'];
 
