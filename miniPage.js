@@ -8,13 +8,13 @@ function init(id,e){ // zove se u body na pocetku, u practise
 
 
 
-function eventHandlers() {
+// function eventHandlers() {
 
-	$( document ).on( 'click', '.tireLink', function(e) {
-		e.preventDefault() ;
-		getDataForPage();
-	});
-}
+// 	$( document ).on( 'click', '.tireLink', function(e) {
+// 		e.preventDefault() ;
+// 		getDataForPage();
+// 	});
+// }
 
 
 function getDataForPage(tireId)
