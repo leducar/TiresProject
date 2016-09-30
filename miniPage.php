@@ -54,7 +54,7 @@
 </nav>
 
 	<div class="container">
-	    <div class="jumbotron" style="background-color:lightgrey">
+	    <div class="jumbotron" style="background-color:skyblue">
 	    	<h2>Opis gume</h2> 
 			<h4 style="align:center">Izaberite kategoriju pretrage</h4> 
 		</div>

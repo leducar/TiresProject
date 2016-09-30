@@ -44,7 +44,7 @@
 </nav>
 
 <div class="container">
-    <div class="jumbotron" style="background-color:lightgrey">
+    <div class="jumbotron" style="background-color:skyblue">
        <h2>Pretrazi gume</h2> 
 	    <h4 style="align:center">Izaberite kategoriju pretrage</h4> 
 
@@ -73,11 +73,11 @@
 		        </div>
 		    </div>
 			<br><br>
-	      <input  type="submit" name="submit" value="Search" id="submit_btn"> 
+	      <input  type="submit" name="submit" value="Search" class="btn-primary"> 
 	    </form> 
 		</div>
     <div class="searchResults">   </div>
-    <div> </div>
+   
 
 	</script>
 </body>

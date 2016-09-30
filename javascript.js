@@ -6,7 +6,7 @@ function start(){ // zove se u body na pocetku, u practise
 
 function eventHandlers() {
 	//////////// PRVI DOGADJAJ
-	$("#submit_btn").on('click', function(konj){
+	$(".btn-primary").on('click', function(konj){
 		konj.preventDefault() // nemoj raditi po difoltu FORME....preventDefault() UGRADJENA METODA KLASE CIJI JE OBJEKAT KONJ POMOCU KOJE PRISTUPAMO METODI
 		prepareEnviroment(); // BRISE STARE REZULTATE
 		getResults(); //FUNKCIJA KOJA NA OSNOVU PARAMETARA DOBAVLJA REZULTATE 
@@ -74,18 +74,23 @@ function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKA
 
 	var oneTire = $('<div class="col-sm-6 col-md-4 col-md-2 div_top_container"> </div>');
 	var brand = $('<div class ="basisNewsStyle" style="border-color:orange;">'+one_container.brand+'</div>') //JS SINTAKSA IZ OBJEKTA SE UZIMA JEDAN PROPERTY  
-	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'</div>')
-	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+'</div>')
+	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'/'+one_container.height+'/R'+one_container.radius+'</div>');
+	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+''+",00 RSD"+'</div>');
+	var divforLink = $('<div class ="basisNewsStyle tireLink"></div>');
 	var link = $('<a class="tireLink" href="miniPage.php?tireId='+one_container.id+'">'+"Detaljnije"+'</a>');
 	var tireImg = $('<img class="tirephoto" src="img/'+one_container.images+'"></img>');
 	
 
-	link.append(tireImg);
+
+	//link.append(tireImg);
+	divforLink.append(link);
+
 	oneTire.append(brand);
 	oneTire.append(width);
 	oneTire.append(price);
 	oneTire.append(tireImg);
-	oneTire.append(link);
+	oneTire.append(divforLink);
+	//oneTire.append(link);
 	outerBox.append(oneTire); //U VELIKI BOX APENDUJEM JEDAN KONTEJNER
 }
 
