@@ -21,9 +21,9 @@
      
     position:relative;  
     float: left;
-    min-width:32%;
+    min-width:33%;
     height:auto;
-    margin: 1%;
+   /*  margin: 1%; */
     margin-right: 0%; 
     border: 2px solid lightsteelblue;
     border-radius: 10px;

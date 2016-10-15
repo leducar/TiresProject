@@ -24,10 +24,11 @@ class dbOperations extends propertiesClass
             $servername = "localhost";  //  hostname
             $dbname = "gume";  //  databasename
             $username = "root";  //  username
-            $password = "pera";  //  password
+            $password = "";  //  password
 
             $this->DBH = new PDO('mysql:host='.$servername.'; dbname='.$dbname, $username, $password);
             $this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+			$this->DBH->exec("set names utf8");
             //echo 'Successfully connected to the database!';  
         }
         catch (PDOException $err) {
