@@ -1,8 +1,7 @@
 
-function init(id,e){ // zove se u body na pocetku, u practise
+function init(id){ // zove se u body na pocetku, u practise
 	eventHandlers(); //
 	getDataForPage(id);
-	e.preventDefault();
 }
 
 
@@ -43,13 +42,16 @@ function getDataForPage(tireId)
 
 function createOne(resultList, outerBox)
 {
-	var oneTire = $('<div class=""> </div>');
+	var oneTire = $('<div class = "col-md-12" style="border:1px solid blue"> </div>');
 	var tireImg = $('<img class="oneTireStyle" src="img/'+resultList.images+'"></img>');
-	var tireBrand = $('<div class ="oneTireStyle" style="border-color:orange;font-size:40px;">'+resultList.brand+'</div>')
+	var tireBrand = $('<div class ="descriptionStyle" style="border-color:orange;font-size:40px;">'+resultList.brand+'</div>')
 	var tireDescription = $('<div class ="basisNewsStyle tireDescription">'+resultList.description+'</div>')
+	var additionalImages = $('<div class="additionalImages"> </div>');
 	
 	tireBrand.append(tireDescription);
 	oneTire.append(tireImg);
 	oneTire.append(tireBrand);
+	
+	oneTire.append(additionalImages); 
 	outerBox.append(oneTire); 
 }
