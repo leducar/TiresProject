@@ -76,7 +76,11 @@ function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKA
 	var brand = $('<div class ="basisNewsStyle" style="border-color:orange;">'+one_container.brand+'</div>') //JS SINTAKSA IZ OBJEKTA SE UZIMA JEDAN PROPERTY  
 	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'/'+one_container.height+'/R'+one_container.radius+'</div>');
 	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+''+",00 RSD"+'</div>');
+<<<<<<< HEAD
 	var divforLink = $('<div class ="basisNewsStyle" style="background:skyblue;"></div>');
+=======
+	var divforLink = $('<div class ="basisNewsStyle tireLink"></div>');
+>>>>>>> 6c37de182b100eebfc88380f1cc76a875d63ab79
 	var link = $('<a class="tireLink" href="miniPage.php?tireId='+one_container.id+'">'+"Detaljnije"+'</a>');
 	var tireImg = $('<img class="tirephoto" src="img/'+one_container.images+'"></img>');
 	
