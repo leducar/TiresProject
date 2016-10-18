@@ -53,7 +53,7 @@
 			<div class="form-group">
 		        <label class="col-xs-3 control-label">Brand</label>
 		        <div class="col-xs-5 selectContainer">
-		            <input type="text" id = "select_brand" name="cityname" class="form-control">
+		            <input type="text" id = "inputField" name="cityname" class="form-control">
 		        </div>
 		    </div>
 			<br><br>

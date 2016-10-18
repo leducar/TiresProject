@@ -8,17 +8,19 @@ function eventHandlers() {
 	//////////// PRVI DOGADJAJ
 	$(".btn-primary").on('click', function(){
 	//	konj.preventDefault() // nemoj raditi po difoltu FORME....preventDefault() UGRADJENA METODA KLASE CIJI JE OBJEKAT KONJ POMOCU KOJE PRISTUPAMO METODI
-		prepareEnviroment(); // BRISE STARE REZULTATE
+	//	prepareEnviroment(); // BRISE STARE REZULTATE
 		getResults(); //FUNKCIJA KOJA NA OSNOVU PARAMETARA DOBAVLJA REZULTATE 
 		
 	});	
 	//////////////// DRUGI DOGADJAJ
-	$("#select_brand").on('change', determineSelectedValue());	// na promenu PRVOG MENIJA pozovi fju KOJA ODREDJUJE VREDNOSTI U DRUGOM MENIJU
+	// $("#select_brand").on('change', determineSelectedValue());	// na promenu PRVOG MENIJA pozovi fju KOJA ODREDJUJE VREDNOSTI U DRUGOM MENIJU
 
-	// $( document ).on( 'click', '.tireLink', function(e) {
-	// 	e.preventDefault() ;
-	// 	getDataForPage();
-	// });
+	$('#searchform').submit(function() {
+		if ($.trim($("#select_brand").val()) === "") {
+			alert('you did not fill out one of the fields');
+			return false;
+		}
+	});
 	
 	
 }
@@ -26,15 +28,16 @@ function eventHandlers() {
 
 function getResults() {
 
-	var brand = $("#select_brand option:selected").text(); // TEKST-VREDNOST OD SELEKTOVANE OPCIJE ELEMENTA select_brand
+	//alert ('tet');
+	var cityname = $("#inputField").val(); // TEKST-VREDNOST OD SELEKTOVANE OPCIJE ELEMENTA select_brand
 	//var name = $("#search_box option:selected").text(); // TEKST-VREDNOST OD SELEKTOVANE OPCIJE ELEMENTA search_box
 
-	var data_blabla = 'brand=' + brand + "&name=" + name;
-	if (name){ // if name is not empty
+	var data = 'cityname=' + cityname;
+	if (cityname){ // if name is not empty
 		$.ajax ({ //http://www.w3schools.com/jquery/ajax_ajax.asp
 			type: "GET", //NAZIV METODE GET ILI POST TYPE Specifies the type of request. (GET or POST)
 			url: "process.php",// NA OVAJ PROCES SALJEMO PODATKE...URL Specifies the URL to send the request to. Default is the current page
-			data : data_blabla, //DATA Specifies data to be sent to the server
+			data : data, //DATA Specifies data to be sent to the server
 
 			beforeSend: function(data) { // OVO DATA JE ONO STO SALJEM
 			//	alert('before'); // DA PROVERIM DA LI JE DOSLO DO OVDE, PRE SLANJA AJAX RIKVESTA

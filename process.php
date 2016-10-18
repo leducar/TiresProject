@@ -5,6 +5,7 @@
 	if (isset($_GET['cityname']))
 	{
 		$cityname = $_GET['cityname'];
+		echo $cityname;
 	}else{
 		die('There is no such a place in Montenegro ');
 	}
@@ -31,7 +32,7 @@
 
 <body>
 <!-- <body> onload="init(<?php //echo $cityname;?>)"> -->
-<?php echo $cityname;?>
+
 
 <h1>dadad</h1>
 
