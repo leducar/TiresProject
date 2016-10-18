@@ -43,37 +43,21 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="jumbotron" style="background-color:skyblue">
-       <h2>Pretrazi gume</h2> 
-	    <h4 style="align:center">Izaberite kategoriju pretrage</h4> 
+<div class="container text-center">
+    <div class="jumbotron vertical-center" style="background-color:skyblue;margin-top: 20%">
+       <h2>Izaberite grad</h2> 
+	 
 
-	    <form  method="post" action="process.php"  id="searchform" class="form-horizontal"> 
+	    <form  method="get" action="process.php"  id="searchform" class="form-horizontal"> 
 
 			<div class="form-group">
 		        <label class="col-xs-3 control-label">Brand</label>
 		        <div class="col-xs-5 selectContainer">
-		            <select id = "select_brand" name="brand" class="form-control">
-		                <option value="base">Please select</option>
-		                <option value="tigar">Tigar</option>
-		                <option value="good_year">Good Year</option>
-		                <option value="pireli">Pireli</option>
-		                <option value="kleber">Kleber</option>
-		                <option value="dunlop">Dunlop</option>
-		            </select>
-		        </div>
-		    </div>
-
-		    <div class="form-group">
-		        <label class="col-xs-3 control-label">Name</label>
-		        <div class="col-xs-5 selectContainer">
-		            <select id = "search_box" name="name" class="form-control">
-		                <option> Please choose from above</option>
-		            </select>
+		            <input type="text" id = "select_brand" name="cityname" class="form-control">
 		        </div>
 		    </div>
 			<br><br>
-	      <input  type="submit" name="submit" value="Search" class="btn-primary"> 
+	      <input  type="submit" name="submit" value="Search" class="btn-primary btn h2 lightBlue get-Started-btn"> 
 	    </form> 
 		</div>
     <div class="searchResults">   </div>

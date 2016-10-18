@@ -1,9 +1,21 @@
 
-function init(id){ // zove se u body na pocetku, u practise
-	eventHandlers(); //
-	getDataForPage(id);
-}
+// function init(cityname)
+// { 
+// 	//eventHandlers(); //
+// 	getDataForPage(cityname);
+// }
 
+$(document).ready(function () {
+       
+	var cname="<?php echo $cityname; ?>";
+	
+});
+
+
+
+// $( document ).ready(function() {
+//     getDataForPage();
+// });
 
 
 
@@ -40,18 +52,18 @@ function getDataForPage(tireId)
 }
 
 
-function createOne(resultList, outerBox)
-{
-	var oneTire = $('<div class = "col-md-12" style="border:1px solid blue"> </div>');
-	var tireImg = $('<img class="oneTireStyle" src="img/'+resultList.images+'"></img>');
-	var tireBrand = $('<div class ="descriptionStyle" style="border-color:orange;font-size:40px;">'+resultList.brand+'</div>')
-	var tireDescription = $('<div class ="basisNewsStyle tireDescription">'+resultList.description+'</div>')
-	var additionalImages = $('<div class="additionalImages"> </div>');
+// function createOne(resultList, outerBox)
+// {
+// 	var oneTire = $('<div class = "col-md-12" style="border:1px solid blue"> </div>');
+// 	var tireImg = $('<img class="oneTireStyle" src="img/'+resultList.images+'"></img>');
+// 	var tireBrand = $('<div class ="descriptionStyle" style="border-color:orange;font-size:40px;">'+resultList.brand+'</div>')
+// 	var tireDescription = $('<div class ="basisNewsStyle tireDescription">'+resultList.description+'</div>')
+// 	var additionalImages = $('<div class="additionalImages"> </div>');
 	
-	tireBrand.append(tireDescription);
-	oneTire.append(tireImg);
-	oneTire.append(tireBrand);
+// 	tireBrand.append(tireDescription);
+// 	oneTire.append(tireImg);
+// 	oneTire.append(tireBrand);
 	
-	oneTire.append(additionalImages); 
-	outerBox.append(oneTire); 
-}
+// 	oneTire.append(additionalImages); 
+// 	outerBox.append(oneTire); 
+// }

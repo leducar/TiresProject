@@ -6,8 +6,8 @@ function start(){ // zove se u body na pocetku, u practise
 
 function eventHandlers() {
 	//////////// PRVI DOGADJAJ
-	$(".btn-primary").on('click', function(konj){
-		konj.preventDefault() // nemoj raditi po difoltu FORME....preventDefault() UGRADJENA METODA KLASE CIJI JE OBJEKAT KONJ POMOCU KOJE PRISTUPAMO METODI
+	$(".btn-primary").on('click', function(){
+	//	konj.preventDefault() // nemoj raditi po difoltu FORME....preventDefault() UGRADJENA METODA KLASE CIJI JE OBJEKAT KONJ POMOCU KOJE PRISTUPAMO METODI
 		prepareEnviroment(); // BRISE STARE REZULTATE
 		getResults(); //FUNKCIJA KOJA NA OSNOVU PARAMETARA DOBAVLJA REZULTATE 
 		
@@ -27,12 +27,12 @@ function eventHandlers() {
 function getResults() {
 
 	var brand = $("#select_brand option:selected").text(); // TEKST-VREDNOST OD SELEKTOVANE OPCIJE ELEMENTA select_brand
-	var name = $("#search_box option:selected").text(); // TEKST-VREDNOST OD SELEKTOVANE OPCIJE ELEMENTA search_box
+	//var name = $("#search_box option:selected").text(); // TEKST-VREDNOST OD SELEKTOVANE OPCIJE ELEMENTA search_box
 
 	var data_blabla = 'brand=' + brand + "&name=" + name;
 	if (name){ // if name is not empty
 		$.ajax ({ //http://www.w3schools.com/jquery/ajax_ajax.asp
-			type: "POST", //NAZIV METODE GET ILI POST TYPE Specifies the type of request. (GET or POST)
+			type: "GET", //NAZIV METODE GET ILI POST TYPE Specifies the type of request. (GET or POST)
 			url: "process.php",// NA OVAJ PROCES SALJEMO PODATKE...URL Specifies the URL to send the request to. Default is the current page
 			data : data_blabla, //DATA Specifies data to be sent to the server
 
@@ -48,26 +48,27 @@ function getResults() {
 					
 			} 
 		})
-	}else{ //DRUGI SLUCAJ KAD IMAM SAMO BREND BEZ NAVODJENJA IMENA GUME
-		$.ajax ({
-			type: "POST",
-			url: "getResultsByName.php",
-			data : data_blabla,
+	 }
+	//else{ //DRUGI SLUCAJ KAD IMAM SAMO BREND BEZ NAVODJENJA IMENA GUME
+	// 	$.ajax ({
+	// 		type: "POST",
+	// 		url: "getResultsByName.php",
+	// 		data : data_blabla,
 
-			beforeSend: function(data) {
-			//	alert('before');
-			},
-			success: function(data){
-				var resultList = $.parseJSON(data);
-				var outerBox = $('.searchResults');
-				 $.each(resultList, function(i,one_container) { // when we have array of objects
-					createOneExample(one_container,outerBox);
-					//getDataForPage(one_container.id);				
-				});
+	// 		beforeSend: function(data) {
+	// 		//	alert('before');
+	// 		},
+	// 		success: function(data){
+	// 			var resultList = $.parseJSON(data);
+	// 			var outerBox = $('.searchResults');
+	// 			 $.each(resultList, function(i,one_container) { // when we have array of objects
+	// 				createOneExample(one_container,outerBox);
+	// 				//getDataForPage(one_container.id);				
+	// 			});
 				
-			} 
-		})
-	}
+	// 		} 
+	// 	})
+	// }
 }
 
 function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKAZUJE REZULTATE, PRAVI PRIKAZ REZULTATA NA STRANICI
@@ -76,11 +77,8 @@ function createOneExample (one_container, outerBox) { // OVA FJA DINAMICKI PRIKA
 	var brand = $('<div class ="basisNewsStyle" style="border-color:orange;">'+one_container.brand+'</div>') //JS SINTAKSA IZ OBJEKTA SE UZIMA JEDAN PROPERTY  
 	var width = $('<div class ="basisNewsStyle" style="border-color:red;">'+one_container.width+'/'+one_container.height+'/R'+one_container.radius+'</div>');
 	var price = $('<div class ="basisNewsStyle" style="border-color:blue;">'+one_container.price+''+",00 RSD"+'</div>');
-<<<<<<< HEAD
 	var divforLink = $('<div class ="basisNewsStyle" style="background:skyblue;"></div>');
-=======
 	var divforLink = $('<div class ="basisNewsStyle tireLink"></div>');
->>>>>>> 6c37de182b100eebfc88380f1cc76a875d63ab79
 	var link = $('<a class="tireLink" href="miniPage.php?tireId='+one_container.id+'">'+"Detaljnije"+'</a>');
 	var tireImg = $('<img class="tirephoto" src="img/'+one_container.images+'"></img>');
 	

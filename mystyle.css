@@ -1,3 +1,36 @@
+html, body {
+      height: 100%;
+    }
+    .container{
+      width: 1025px;
+    }
+    .vertical-center {
+      height: 100%;
+      width: 100%;
+      text-align: center;  /* align the inline(-block) elements horizontally */
+      font: 0/0 a;         /* remove the gap between inline(-block) elements */
+    }
+    .vertical-center:before {    /* create a full-height inline block pseudo=element */
+      content: ' ';
+      display: inline-block;
+      vertical-align: middle;  /* vertical alignment of the inline element */
+      height: 100%;
+    }
+    .vertical-center > .container {
+      max-width: 100%;
+      background-color: gold;
+      display: inline-block;
+      vertical-align: middle;  /* vertical alignment of the inline element */
+      font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;        /* <-- reset the font property */
+    }
+
+.form-control {
+    width: 120%;
+    height: 5%;
+    font-size: 20px;
+}
+
+
 .searchResults{
    /* border:1px solid red; */
     width:100%;
@@ -21,18 +54,15 @@
      
     position:relative;  
     float: left;
-<<<<<<< HEAD
     min-width:25%;
     height:auto;
     margin-bottom: 1%; 
-=======
     min-width:33%;
     max-width:96%;
 	height:auto;
     margin-bottom: 3%; 
     border: 2px solid lightsteelblue;
     border-radius: 10px;
->>>>>>> 6c37de182b100eebfc88380f1cc76a875d63ab79
 }
 
 .leftIndent{
@@ -51,11 +81,7 @@
     background: transparent;
     font-family: "Palatino Linotype";
     color: #337ab7;
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 6c37de182b100eebfc88380f1cc76a875d63ab79
 }
 
 .tirephoto{
@@ -69,14 +95,11 @@
 
 .tireLink{
 
-    font-size: 25px;
-<<<<<<< HEAD
-    text-align: center; 
-=======
-    background: skyblue;
-    margin-top: 15px;
-    margin-bottom: inherit;
->>>>>>> 6c37de182b100eebfc88380f1cc76a875d63ab79
+   font-size: 25px;
+   text-align: center; 
+   background: skyblue;
+   margin-top: 15px;
+   margin-bottom: inherit;
 }
 
 .tireDescription{

@@ -24,7 +24,7 @@ class dbOperations extends propertiesClass
             $servername = "localhost";  //  hostname
             $dbname = "gume";  //  databasename
             $username = "root";  //  username
-            $password = "";  //  password
+            $password = "pera";  //  password
 
             $this->DBH = new PDO('mysql:host='.$servername.'; dbname='.$dbname, $username, $password);
             $this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
