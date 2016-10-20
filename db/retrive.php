@@ -1,15 +1,15 @@
 <?php 
 
 class propertiesClass {
-	public $id;
-    public $brand;
-	public $name;
-	public $radius;
-	public $width; 
-	public $height;
-	public $price;
-    public $images;
-    public $description;
+	public $cityid;
+    public $cityName;
+	public $pool;
+	public $hotelName;
+	// public $width; 
+	// public $height;
+	// public $price;
+ //    public $images;
+ //    public $description;
     	
 }
 
@@ -22,7 +22,7 @@ class dbOperations extends propertiesClass
     {
         try {
             $servername = "localhost";  //  hostname
-            $dbname = "gume";  //  databasename
+            $dbname = "hotels";  //  databasename
             $username = "root";  //  username
             $password = "pera";  //  password
 
@@ -65,9 +65,9 @@ class dbOperations extends propertiesClass
 	}
 
 
-    public function searchByName ($brand)
+    public function searchByName ($cityname)
     {
-        $sql= "SELECT id,brand,name,radius,width,height,price,images,description FROM product WHERE brand LIKE '%" . $brand .  "%'";
+        $sql= "SELECT cityid,cityName,pool,hotelName FROM city WHERE cityName LIKE '%" . $cityname .  "%'";
         $this->STH = $this->DBH->query ($sql);
         
 
@@ -75,13 +75,13 @@ class dbOperations extends propertiesClass
         while($row=$this->STH->fetch(PDO::FETCH_ASSOC)){ // row is array of results
 
             $properties = new propertiesClass();
-            $properties->id = $row['id'];
-            $properties->brand = $row['brand'];
-             $properties->radius = $row['radius'];
-            $properties->width = $row['width'];
-             $properties->height = $row['height'];
-            $properties->price = $row['price'];
-            $properties->images = $row['images'];
+            $properties->cityid = $row['cityid'];
+            $properties->cityName = $row['cityName'];
+            $properties->pool = $row['pool'];
+            $properties->hotelName = $row['hotelName'];
+            // $properties->height = $row['height'];
+            // $properties->price = $row['price'];
+            // $properties->images = $row['images'];
 
             array_push($objReturn,$properties);
         }
