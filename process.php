@@ -5,7 +5,17 @@
 	if (isset($_GET['cityname']))
 	{
 		$cityname = $_GET['cityname'];
-		echo $cityname;
+		//echo $cityname;
+		$characters = strlen($cityname); 
+		
+		if($characters >0) 
+		{
+			$db = new dbOperations(); 
+			$results = array(); 
+			$results = $db->searchByBrandAndName($brand,$name); 
+			echo json_encode($results); 
+			//print_r($results);
+		}
 	}else{
 		die('There is no such a place in Montenegro ');
 	}

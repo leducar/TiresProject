@@ -54,6 +54,7 @@
 		        <label class="col-xs-3 control-label">Brand</label>
 		        <div class="col-xs-5 selectContainer">
 		            <input type="text" id = "inputField" name="cityname" class="form-control">
+                    <span class="error">This field is required</span>
 		        </div>
 		    </div>
 			<br><br>

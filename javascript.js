@@ -15,14 +15,45 @@ function eventHandlers() {
 	//////////////// DRUGI DOGADJAJ
 	// $("#select_brand").on('change', determineSelectedValue());	// na promenu PRVOG MENIJA pozovi fju KOJA ODREDJUJE VREDNOSTI U DRUGOM MENIJU
 
-	$('#searchform').submit(function() {
-		if ($.trim($("#select_brand").val()) === "") {
-			alert('you did not fill out one of the fields');
-			return false;
+	$('#inputField').on('input', function() {
+		var input=$(this);
+		var is_name=input.val();
+		if(is_name){input.removeClass("invalid").addClass("valid");}
+			else{input.removeClass("valid").addClass("invalid");}
+	});
+
+
+
+
+	$(".btn-primary").click(function(event){
+		var form_data=$("#inputField").val();
+		var error_free=true;
+		for (var input in form_data){
+			var element=$("#inputField"+form_data[input]['cityname']);
+			var valid=element.hasClass("valid");
+			var error_element=$("span", element.parent());
+			if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;}
+				else{error_element.removeClass("error_show").addClass("error");}
+		}
+		if (error_free){
+			event.preventDefault(); 
+			alert('Morate uneti grad koji zelite');
 		}
 	});
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 }
 
 
